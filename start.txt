@@ -1,0 +1,5 @@
+# Terminal 1 - Backend
+cd ~/L/P/J/hireme && export $(cat .env | xargs) && ./mvnw spring-boot:run -Dspring-boot.run.profiles=local,api
+
+# Terminal 2 - Frontend
+cd ~/L/P/J/hireme/frontend && bun run dev

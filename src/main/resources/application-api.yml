@@ -1,0 +1,20 @@
+spring:
+  main:
+    web-application-type: servlet
+  cloud:
+    function:
+      definition: ""
+
+app:
+  sqs:
+    queue-name: ${SQS_QUEUE_NAME}
+  security:
+    admin:
+      username: ${ADMIN_USERNAME}
+      password: ${ADMIN_PASSWORD}
+      role: ADMIN
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration:
+    ms: 43200000

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: hireme
+
+  datasource:
+    url: ${NEON_DB_URL}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+        show-sql: false
+
+
+analysis:
+  gemini:
+    min-interval-ms: ${GEMINI_MIN_INTERVAL_MS:30000}
+    model-version: ${GEMINI_MODEL_VERSION:gemini-2.5-flash}
+    api-key: ${GEMINI_API_KEY}
+
+slack:
+  webhook:
+    url: ${SLACK_WEBHOOK_URL}

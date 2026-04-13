@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: hireme
+  datasource:
+    url: ${NEON_DB_URL}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  cloud:
+    function:
+      definition: ingestionConsumer
+    aws:
+      sqs:
+        enabled: false
+      region:
+        static: us-east-1
+      credentials:
+        access-key: dummy
+        secret-key: dummy
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration:
+    ms: 43200000 #12 hours
+
+app:
+  security:
+    admin:
+      username: ${ADMIN_USERNAME}
+      password: ${ADMIN_PASSWORD}
+      role: ADMIN
+
+analysis:
+  gemini:
+    min-interval-ms: ${GEMINI_MIN_INTERVAL_MS:30000}
+    model-version: ${GEMINI_MODEL_VERSION:gemini-2.5-flash}
+    api-key: ${GEMINI_API_KEY}
+
+slack:
+  webhook:
+    url: ${SLACK_WEBHOOK_URL}
